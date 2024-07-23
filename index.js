@@ -5,6 +5,11 @@ const fs = require("fs");
 const path = require("path");
 
 const server = http.createServer((req, res) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; style-src-elem 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+  );
+
   if (req.url.toLowerCase().endsWith(".html")) {
     fs.readFile(path.join(__dirname, req.url), "utf8", (err, data) => {
       res.writeHead(200, {
