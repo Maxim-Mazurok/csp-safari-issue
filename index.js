@@ -7,7 +7,7 @@ const path = require("path");
 const server = http.createServer((req, res) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; style-src-elem 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+    "default-src 'self'; script-src 'unsafe-inline'; style-src-elem 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
   );
 
   if (req.url.toLowerCase().endsWith(".html")) {
